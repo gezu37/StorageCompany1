@@ -1,0 +1,39 @@
+﻿@page
+@model StorageCompany1.Pages.item.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Товар</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.item[0].item_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.item[0].amount_inpackage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.item) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.item_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount_inpackage)
+            </td>
+            <td>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

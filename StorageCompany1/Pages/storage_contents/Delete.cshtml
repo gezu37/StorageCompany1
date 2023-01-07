@@ -1,0 +1,46 @@
+﻿@page
+@model StorageCompany1.Pages.storage_contents.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>storage_content</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.storage_content.amount_of_packages)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.storage_content.amount_of_packages)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.storage_content.item)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.storage_content.item.item_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.storage_content.ownerNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.storage_content.ownerNavigation.company_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.storage_content.storagehouse)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.storage_content.storagehouse.storagehouse_address)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="storage_content.id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

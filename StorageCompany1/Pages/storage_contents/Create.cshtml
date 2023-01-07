@@ -1,0 +1,46 @@
+﻿@page
+@model StorageCompany1.Pages.storage_contents.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>storage_content</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="storage_content.item_id" class="control-label"></label>
+                <select asp-for="storage_content.item_id" class ="form-control" asp-items="ViewBag.item_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="storage_content.amount_of_packages" class="control-label"></label>
+                <input asp-for="storage_content.amount_of_packages" class="form-control" />
+                <span asp-validation-for="storage_content.amount_of_packages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="storage_content.storagehouse_id" class="control-label"></label>
+                <select asp-for="storage_content.storagehouse_id" class ="form-control" asp-items="ViewBag.storagehouse_id"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="storage_content.owner" class="control-label"></label>
+                <select asp-for="storage_content.owner" class ="form-control" asp-items="ViewBag.owner"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

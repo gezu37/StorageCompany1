@@ -1,0 +1,53 @@
+﻿@page
+@model StorageCompany1.Pages.storage_contents.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.storage_content[0].amount_of_packages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.storage_content[0].item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.storage_content[0].owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.storage_content[0].storagehouse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.storage_content) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount_of_packages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.item.item_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ownerNavigation.company_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.storagehouse.storagehouse_address)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

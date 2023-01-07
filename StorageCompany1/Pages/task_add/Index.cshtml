@@ -1,0 +1,58 @@
+﻿@page
+@model StorageCompany1.Pages.task_add.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Добавить на склад</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.task_add[0].add_ammount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task_add[0].completed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task_add[0].contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task_add[0].item)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task_add[0].storagehouse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.task_add) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.add_ammount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.completed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contact.contact_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.item.item_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.storagehouse.storagehouse_address)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.task_id">Edit</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
